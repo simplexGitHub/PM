@@ -1,275 +1,474 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "AsioGwy",
+    "title": "LDBS-Lite",
     "version": "1.0"
   },
   "servers": [
     {
-      "url": "http://localhost:3000"
+      "url": "http://localhost:7412"
     }
   ],
   "paths": {
-    "/users/{userId}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "userId",
-          "in": "path",
-          "required": true,
-          "description": "Id of an existing user."
-        }
-      ],
-      "get": {
-        "summary": "Get User Info by User ID",
-        "tags": [],
+    "/api/getLogs": {
+      "parameters": [],
+      "post": {
+        "summary": "",
+        "operationId": "post",
         "responses": {
           "200": {
-            "description": "User Found",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/User"
-                },
-                "examples": {
-                  "Get User Alice Smith": {
-                    "value": {
-                      "id": 142,
-                      "firstName": "Alice",
-                      "lastName": "Smith",
-                      "email": "alice.smith@gmail.com",
-                      "dateOfBirth": "1997-10-31",
-                      "emailVerified": true,
-                      "signUpDate": "2019-08-24"
+                  "type": "object",
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true,
+                      "data": [
+                        {
+                          "_id": "65e87483e3a42a7658601780",
+                          "service": "test",
+                          "data": {
+                            "time": "2024-03-06T13:49:55.028Z"
+                          },
+                          "logType": "error",
+                          "dateTime": "2024-03-06T13:49:55.061Z",
+                          "timestamp": 1709732995061
+                        },
+                        {
+                          "_id": "65e87484e3a42a7658601782",
+                          "service": "test",
+                          "data": {
+                            "time": "2024-03-06T13:49:56.029Z"
+                          },
+                          "logType": "error",
+                          "dateTime": "2024-03-06T13:49:56.036Z",
+                          "timestamp": 1709732996036
+                        },
+                        {
+                          "_id": "65e87485e3a42a7658601784",
+                          "service": "test",
+                          "data": {
+                            "time": "2024-03-06T13:49:57.030Z"
+                          },
+                          "logType": "error",
+                          "dateTime": "2024-03-06T13:49:57.030Z",
+                          "timestamp": 1709732997030
+                        },
+                        {
+                          "_id": "65e87486e3a42a7658601786",
+                          "service": "test",
+                          "data": {
+                            "time": "2024-03-06T13:49:58.033Z"
+                          },
+                          "logType": "error",
+                          "dateTime": "2024-03-06T13:49:58.036Z",
+                          "timestamp": 1709732998036
+                        },
+                        {
+                          "_id": "65e87487e3a42a7658601788",
+                          "service": "test",
+                          "data": {
+                            "time": "2024-03-06T13:49:59.034Z"
+                          },
+                          "logType": "error",
+                          "dateTime": "2024-03-06T13:49:59.036Z",
+                          "timestamp": 1709732999036
+                        },
+                        {
+                          "_id": "65e87488e3a42a765860178a",
+                          "service": "test",
+                          "data": {
+                            "time": "2024-03-06T13:50:00.034Z"
+                          },
+                          "logType": "error",
+                          "dateTime": "2024-03-06T13:50:00.035Z",
+                          "timestamp": 1709733000035
+                        },
+                        {
+                          "_id": "65e87489e3a42a765860178c",
+                          "service": "test",
+                          "data": {
+                            "time": "2024-03-06T13:50:01.037Z"
+                          },
+                          "logType": "error",
+                          "dateTime": "2024-03-06T13:50:01.041Z",
+                          "timestamp": 1709733001041
+                        },
+                        {
+                          "_id": "65e8748ae3a42a765860178e",
+                          "service": "test",
+                          "data": {
+                            "time": "2024-03-06T13:50:02.038Z"
+                          },
+                          "logType": "error",
+                          "dateTime": "2024-03-06T13:50:02.039Z",
+                          "timestamp": 1709733002039
+                        },
+                        {
+                          "_id": "65e8748be3a42a7658601790",
+                          "service": "test",
+                          "data": {
+                            "time": "2024-03-06T13:50:03.040Z"
+                          },
+                          "logType": "error",
+                          "dateTime": "2024-03-06T13:50:03.040Z",
+                          "timestamp": 1709733003040
+                        },
+                        {
+                          "_id": "65e8748ce3a42a7658601792",
+                          "service": "test",
+                          "data": {
+                            "time": "2024-03-06T13:50:04.041Z"
+                          },
+                          "logType": "error",
+                          "dateTime": "2024-03-06T13:50:04.045Z",
+                          "timestamp": 1709733004045
+                        },
+                        {
+                          "_id": "65e8748de3a42a7658601794",
+                          "service": "test",
+                          "data": {
+                            "time": "2024-03-06T13:50:05.042Z"
+                          },
+                          "logType": "error",
+                          "dateTime": "2024-03-06T13:50:05.043Z",
+                          "timestamp": 1709733005043
+                        },
+                        {
+                          "_id": "65e8748ee3a42a7658601796",
+                          "service": "test",
+                          "data": {
+                            "time": "2024-03-06T13:50:06.045Z"
+                          },
+                          "logType": "error",
+                          "dateTime": "2024-03-06T13:50:06.046Z",
+                          "timestamp": 1709733006046
+                        }
+                      ]
+                    }
+                  },
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string"
+                          },
+                          "service": {
+                            "type": "string"
+                          },
+                          "data": {
+                            "type": "object"
+                          },
+                          "logType": {
+                            "$ref": "#/components/schemas/log_type"
+                          },
+                          "dateTime": {
+                            "type": "string"
+                          },
+                          "timestamp": {
+                            "type": "integer"
+                          }
+                        }
+                      }
                     }
                   }
                 }
               }
             }
-          },
-          "404": {
-            "description": "User Not Found"
           }
         },
-        "operationId": "get-users-userId",
-        "description": "Retrieve the information of the user with the matching user ID."
-      },
-      "patch": {
-        "summary": "Update User Information",
-        "operationId": "patch-users-userId",
-        "responses": {
-          "200": {
-            "description": "User Updated",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                },
-                "examples": {
-                  "Updated User Rebecca Baker": {
-                    "value": {
-                      "id": 13,
-                      "firstName": "Rebecca",
-                      "lastName": "Baker",
-                      "email": "rebecca@gmail.com",
-                      "dateOfBirth": "1985-10-02",
-                      "emailVerified": false,
-                      "createDate": "2019-08-24"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "User Not Found"
-          },
-          "409": {
-            "description": "Email Already Taken"
-          }
-        },
-        "description": "Update the information of an existing user.",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
+                "$ref": "#/components/schemas/ldbs-lite-getlogs-body"
+              }
+            },
+            "application/xml": {
+              "schema": {
                 "type": "object",
-                "properties": {
-                  "firstName": {
-                    "type": "string"
-                  },
-                  "lastName": {
-                    "type": "string"
-                  },
-                  "email": {
-                    "type": "string",
-                    "description": "If a new email is given, the user's email verified property will be set to false."
-                  },
-                  "dateOfBirth": {
-                    "type": "string"
-                  }
-                }
-              },
-              "examples": {
-                "Update First Name": {
-                  "value": {
-                    "firstName": "Rebecca"
-                  }
-                },
-                "Update Email": {
-                  "value": {
-                    "email": "rebecca@gmail.com"
-                  }
-                },
-                "Update Last Name & Date of Birth": {
-                  "value": {
-                    "lastName": "Baker",
-                    "dateOfBirth": "1985-10-02"
-                  }
-                }
+                "properties": {}
               }
             }
           },
-          "description": "Patch user properties to update."
+          "description": ""
         }
       }
     },
-    "/user": {
+    
+    "/api/pushLog": {
+      "parameters": [],
       "post": {
-        "summary": "Create New User",
-        "operationId": "post-user",
+        "summary": "",
+        "operationId": "post",
         "responses": {
           "200": {
-            "description": "User Created",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/User"
-                },
-                "examples": {
-                  "New User Bob Fellow": {
-                    "value": {
-                      "id": 12,
-                      "firstName": "Bob",
-                      "lastName": "Fellow",
-                      "email": "bob.fellow@gmail.com",
-                      "dateOfBirth": "1996-08-24",
-                      "emailVerified": false,
-                      "createDate": "2020-11-18"
+                  "type": "object",
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true,
+                      "data": {
+                        "acknowledged": true,
+                        "insertedCount": 3,
+                        "insertedIds": {
+                          "0": "65e7483dd7cf970a16da2ba7",
+                          "1": "65e7483dd7cf970a16da2ba8",
+                          "2": "65e7483dd7cf970a16da2ba9"
+                        }
+                      }
+                    }
+                  },
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "acknowledged": {
+                          "type": "boolean"
+                        },
+                        "insertedCount": {
+                          "type": "integer"
+                        },
+                        "insertedIds": {
+                          "type": "object",
+                          "properties": {
+                            "2": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
               }
             }
-          },
-          "400": {
-            "description": "Missing Required Information"
-          },
-          "409": {
-            "description": "Email Already Taken"
           }
         },
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
+                "$ref": "#/components/schemas/ldbs-lite-obj"
+              }
+            },
+            "application/xml": {
+              "schema": {
                 "type": "object",
-                "properties": {
-                  "firstName": {
-                    "type": "string"
+                "properties": {}
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/clearAllLogs": {
+      "parameters": [],
+      "post": {
+        "summary": "",
+        "operationId": "post",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true,
+                      "data": [
+                        
+                      ]
+                    }
                   },
-                  "lastName": {
-                    "type": "string"
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "dateOfBirth": {
-                    "type": "string",
-                    "format": "date"
-                  }
-                },
-                "required": [
-                  "firstName",
-                  "lastName",
-                  "email",
-                  "dateOfBirth"
-                ]
-              },
-              "examples": {
-                "Create User Bob Fellow": {
-                  "value": {
-                    "firstName": "Bob",
-                    "lastName": "Fellow",
-                    "email": "bob.fellow@gmail.com",
-                    "dateOfBirth": "1996-08-24"
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      
+                    }
                   }
                 }
               }
             }
-          },
-          "description": "Post the necessary fields for the API to create a new user."
+          }
         },
-        "description": "Create a new user."
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ldbs-lite-getlogs-body"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          },
+          "description": ""
+        }
       }
     }
   },
   "components": {
     "schemas": {
-      "User": {
-        "title": "User",
+      "ldbs-lite-obj": {
         "type": "object",
-        "description": "",
-        "examples": [
-          {
-            "id": 142,
-            "firstName": "Alice",
-            "lastName": "Smith",
-            "email": "alice.smith@gmail.com",
-            "dateOfBirth": "1997-10-31",
-            "emailVerified": true,
-            "signUpDate": "2019-08-24"
+        "x-stoplight": {
+          "id": "c3606cd351b08"
+        },
+        "x-examples": {
+          "Example 1": {
+            "service": "test",
+            "data": {},
+            "logType": "error"
           }
-        ],
+        },
         "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Unique identifier for the given user."
-          },
-          "firstName": {
+          "service": {
             "type": "string"
           },
-          "lastName": {
-            "type": "string"
+          "data": {
+            "type": "object",
+            "description": "any valide JS object"
           },
-          "email": {
+          "logType": {
+            "$ref": "#/components/schemas/log_type"
+          },
+          "timestamp": {
+            "type": "number",
+            "x-stoplight": {
+              "id": "z5nd139cskbpg"
+            },
+            "description": "timestamp not required but recommended, if not exist ldbs will generate Date.now()\n"
+          },
+          "datetime": {
             "type": "string",
-            "format": "email"
-          },
-          "dateOfBirth": {
-            "type": "string",
-            "format": "date",
-            "example": "1997-10-31"
-          },
-          "emailVerified": {
-            "type": "boolean",
-            "description": "Set to true if the user's email has been verified."
-          },
-          "createDate": {
-            "type": "string",
-            "format": "date",
-            "description": "The date that the user was created."
+            "x-stoplight": {
+              "id": "2rrjqzg3h1udr"
+            },
+            "description": "datetime not required but recommended, if not exist ldbs will generate (new Date()).toISO...\n"
           }
         },
         "required": [
-          "id",
-          "firstName",
-          "lastName",
-          "email",
-          "emailVerified"
+          "service",
+          "data",
+          "logType"
         ]
+      },
+      "log_type": {
+        "title": "log_type",
+        "x-stoplight": {
+          "id": "4v1m4x7ovntd3"
+        },
+        "type": "string",
+        "enum": [
+          "error",
+          "info",
+          "warning"
+        ]
+      },
+      "LDBS": {
+        "type": "object",
+        "x-examples": {
+          "Example 1": {
+            "service": "test",
+            "data": {},
+            "logType": "error",
+            "timestamp": 1709724207061,
+            "datetime": "2024-03-06T11:22:32.703Z"
+          }
+        },
+        "properties": {
+          "service": {
+            "type": "string",
+            "description": "any string - service name\n"
+          },
+          "data": {
+            "type": "object",
+            "description": "any valid JSON\n"
+          },
+          "logType": {
+            "$ref": "#/components/schemas/log_type"
+          },
+          "timestamp": {
+            "type": "integer",
+            "description": "not required - will generate Date.now()\n"
+          },
+          "datetime": {
+            "type": "string",
+            "description": "not required - will generate (new Date).toISO\n"
+          }
+        },
+        "required": [
+          "service",
+          "data",
+          "logType"
+        ]
+      },
+      "ldbs-lite-getlogs-body": {
+        "type": "object",
+        "x-examples": {
+          "Example 1": {
+            "secondsAgo": 10000,
+            "logType": "error",
+            "limit": 20,
+            "sort": {
+              "timestamp": -1
+            }
+          }
+        },
+        "properties": {
+          "secondsAgo": {
+            "type": "integer"
+          },
+          "logType": {
+            "type": "string",
+            "enum": [
+              "error",
+              "info",
+              "warning"
+            ]
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "sort": {
+            "type": "object",
+            "properties": {
+              "timestamp": {
+                "type": "integer",
+                "default": -1,
+                "minimum": -1,
+                "maximum": 1,
+                "example": "-1 ",
+                "description": "-1 DESC\n1 ASC\ntimestamp as examle - filed of sorting\n"
+              }
+            },
+            "required": [
+              "timestamp"
+            ]
+          }
+        }
       }
     }
   }
