@@ -6,7 +6,7 @@
   "info": {
     "title": "LDBS-Lite",
     "version": "1.0",
-    "description": "LDBS-lite\nsave logs to DB Mongo\nUDP Server 7412 \nREST/WS Server 7412"
+    "description": "LDBS-lite\nsave logs to DB Mongo\nUDP Server 7412 \nREST/WS Server 7412\npushLog, getLogs, clearAllLogs - only REST\npushLog - REST/WS/UDP\n(UDP - should be less 65K)"
   },
   "servers": [
     {
