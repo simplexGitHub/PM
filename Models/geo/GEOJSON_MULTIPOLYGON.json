@@ -1,0 +1,107 @@
+{
+  "title": "GEOJSON_MULTIPOLYGON",
+  "x-stoplight": {
+    "id": "mi4lict2lhem0"
+  },
+  "type": "object",
+  "examples": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -180,
+                -180
+              ]
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "Feature"
+      ],
+      "x-stoplight": {
+        "id": "6n56n9vi1h1ct"
+      }
+    },
+    "geometry": {
+      "type": "object",
+      "required": [
+        "type",
+        "coordinates"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "MultiPolygon"
+          ],
+          "default": "MultiPolygon",
+          "example": "MultiPolygon",
+          "x-stoplight": {
+            "id": "u7523faibj3e0"
+          }
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/POINT.v1",
+                "x-stoplight": {
+                  "id": "2ufi769gyzynz"
+                }
+              },
+              "x-stoplight": {
+                "id": "k575xgt61ydjb"
+              }
+            },
+            "x-stoplight": {
+              "id": "yqail9bx1hxzt"
+            }
+          },
+          "x-stoplight": {
+            "id": "bhzljfslawtkz"
+          }
+        }
+      },
+      "x-stoplight": {
+        "id": "npmvuhvi8hh5l"
+      }
+    }
+  },
+  "required": [
+    "type",
+    "geometry"
+  ],
+  "definitions": {
+    "POINT.v1": {
+      "type": "array",
+      "title": "POINT",
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "[longitude, latitude]",
+      "items": {
+        "type": "number",
+        "minimum": -180,
+        "maximum": 180,
+        "x-stoplight": {
+          "id": "xhmisvn69k3b7"
+        }
+      },
+      "x-stoplight": {
+        "id": "ii3qp2noi0nn8"
+      }
+    }
+  }
+}

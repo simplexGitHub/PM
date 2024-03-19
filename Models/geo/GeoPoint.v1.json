@@ -1,0 +1,68 @@
+{
+  "title": "GeoPoint",
+  "x-stoplight": {
+    "id": "gymc3ics9qpar"
+  },
+  "type": "object",
+  "properties": {
+    "geometry": {
+      "type": "object",
+      "required": [
+        "type",
+        "coordinates"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "default": "Point",
+          "example": "Point",
+          "x-stoplight": {
+            "id": "byh0b6hodxakf"
+          }
+        },
+        "coordinates": {
+          "$ref": "#/definitions/POINT3D.v1",
+          "x-stoplight": {
+            "id": "nnwm5x6q1ug85"
+          }
+        }
+      },
+      "x-stoplight": {
+        "id": "3qpcywtif257g"
+      }
+    }
+  },
+  "required": [
+    "geometry"
+  ],
+  "examples": [
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "description": "Geo Json Point standrd ",
+  "definitions": {
+    "POINT3D.v1": {
+      "type": "array",
+      "title": "POINT3D",
+      "minItems": 2,
+      "maxItems": 3,
+      "description": "[longitude, latitude, altitude]",
+      "items": {
+        "type": "number",
+        "x-stoplight": {
+          "id": "4tx1w2nwmd8v6"
+        }
+      },
+      "x-stoplight": {
+        "id": "r5uq0bx25kjm7"
+      }
+    }
+  }
+}

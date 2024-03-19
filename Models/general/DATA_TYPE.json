@@ -1,0 +1,15 @@
+{
+  "title": "DATA_TYPE",
+  "x-stoplight": {
+    "id": "1evvwvnsyawhf"
+  },
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "68b4ibk62nz4b"
+      }
+    }
+  }
+}

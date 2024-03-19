@@ -23,7 +23,24 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/User"
+                  "type": "object",
+                  "properties": {
+                    "": {
+                      "$ref": "../Models/general/ASYNC_RESPONSE.v1.json",
+                      "x-stoplight": {
+                        "id": "bstcw1xt6miop"
+                      }
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/DTM_ROUTE_FULL_DATA",
+                      "x-stoplight": {
+                        "id": "3j8bblbtws3wg"
+                      }
+                    }
+                  },
+                  "required": [
+                    null
+                  ]
                 },
                 "examples": {
                   "New User Bob Fellow": {
@@ -52,28 +69,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "firstName": {
-                    "type": "string"
-                  },
-                  "lastName": {
-                    "type": "string"
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "dateOfBirth": {
-                    "type": "string",
-                    "format": "date"
-                  }
-                },
-                "required": [
-                  "firstName",
-                  "lastName",
-                  "email",
-                  "dateOfBirth"
-                ]
+                "$ref": "#/components/schemas/COMPUTE_ROUTE_GENERY_REQUEST"
               },
               "examples": {
                 "Create User Bob Fellow": {
@@ -84,6 +80,17 @@
                     "dateOfBirth": "1996-08-24"
                   }
                 }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/COMPUTE_ROUTE_GENERY_REQUEST"
               }
             }
           },
@@ -96,73 +103,11 @@
   },
   "components": {
     "schemas": {
-      "User": {
-        "title": "User",
-        "type": "object",
-        "description": "",
-        "examples": [
-          {
-            "id": 142,
-            "firstName": "Alice",
-            "lastName": "Smith",
-            "email": "alice.smith@gmail.com",
-            "dateOfBirth": "1997-10-31",
-            "emailVerified": true,
-            "signUpDate": "2019-08-24"
-          }
-        ],
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Unique identifier for the given user."
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string",
-            "format": "email"
-          },
-          "dateOfBirth": {
-            "type": "string",
-            "format": "date",
-            "example": "1997-10-31"
-          },
-          "emailVerified": {
-            "type": "boolean",
-            "description": "Set to true if the user's email has been verified."
-          },
-          "createDate": {
-            "type": "string",
-            "format": "date",
-            "description": "The date that the user was created."
-          }
-        },
-        "required": [
-          "id",
-          "firstName",
-          "lastName",
-          "email",
-          "emailVerified"
-        ]
-      },
-      "request": {
-        "title": "requestJSON",
-        "x-stoplight": {
-          "id": "fn14tall86p54"
-        },
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          }
-        }
-      },
-      "requestJSON": {
+      "COMPUTE_ROUTE_GENERY_REQUEST": {
         "$schema": "http://json-schema.org/draft-07/schema#",
+        "x-stoplight": {
+          "id": "bb213b97b0fa2"
+        },
         "type": "object",
         "definitions": {
           "Point": {
@@ -273,7 +218,7 @@
             "maxItems": 2,
             "description": "the main field in the request!\n1. The Route Service calculates a route from the first point in the array (fromTo[0]) to the second point (fromTo[1]).\n2. The points must be a \"cartographic\" points:\n[longitude, latitude].\n3. The points must be in the flight perimeter.",
             "items": {
-              "$ref": "#/definitions/Point3DOrPoint"
+              "$ref": "../Models/geo/POINT3D.v1.json"
             }
           },
           "heightASL": {
@@ -308,7 +253,7 @@
           "staticPathASL": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/POINT3D"
+              "$ref": "../Models/geo/POINT3D.v1.json"
             }
           },
           "allowedId": {
@@ -319,7 +264,7 @@
             "type": "number"
           },
           "timeRange": {
-            "$ref": "#/components/schemas/RANGE"
+            "$ref": "../Models/general/RANGE.json"
           },
           "flightTime_ms": {
             "type": "number"
@@ -354,33 +299,6 @@
           "dynamicPartAltType"
         ]
       },
-      "RANGE": {
-        "title": "RANGE",
-        "x-stoplight": {
-          "id": "a5tjhy3014aw6"
-        },
-        "type": "object",
-        "properties": {
-          "min": {
-            "type": "number",
-            "x-stoplight": {
-              "id": "v39gievxuc0sb"
-            },
-            "description": "the 'min' field must be less or equsl to the 'max' field"
-          },
-          "max": {
-            "type": "number",
-            "x-stoplight": {
-              "id": "boi1jwu5ap0xv"
-            },
-            "description": "the 'max' field must be more or equsl to the 'min' field"
-          }
-        },
-        "required": [
-          "min",
-          "max"
-        ]
-      },
       "ROUTE_POINT_PARAMETERS": {
         "title": "ROUTE_POINT_PARAMETERS",
         "x-stoplight": {
@@ -407,7 +325,7 @@
             }
           },
           "distance": {
-            "$ref": "#/components/schemas/RANGE",
+            "$ref": "../Models/general/RANGE.json",
             "x-stoplight": {
               "id": "ypgi2ajvp1zpk"
             }
@@ -448,16 +366,6 @@
           "direction",
           "length"
         ]
-      },
-      "POINT3D": {
-        "title": "POINT3D",
-        "x-stoplight": {
-          "id": "86g0lnw1gbu2e"
-        },
-        "type": "array",
-        "minItems": 2,
-        "maxItems": 3,
-        "items": {}
       },
       "DYNAMIC_ALT_TYPE": {
         "title": "DYNAMIC_ALT_TYPE",
@@ -504,6 +412,60 @@
         "required": [
           "slopeDegree",
           "constPointHeightASL"
+        ]
+      },
+      "DTM_ROUTE_FULL_DATA": {
+        "title": "response",
+        "x-stoplight": {
+          "id": "ddz39nyvcjwdm"
+        },
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "routeASL": {
+            "x-stoplight": {
+              "id": "s8gykr2ozmbtx"
+            },
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/POINT3D",
+              "x-stoplight": {
+                "id": "cvxlb3m2i2ns0"
+              }
+            }
+          },
+          "groundASL_Cartesian2": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "x4cy56bsr4rgp"
+            }
+          },
+          "routeASL_Cartesian2": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "il1a4a42buu7h"
+            }
+          },
+          "graphRange": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "oyksg4xo1utu3"
+            }
+          },
+          "airVehicleId": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "xeg3ohyc4j834"
+            }
+          }
+        },
+        "required": [
+          "routeASL",
+          "groundASL_Cartesian2",
+          "routeASL_Cartesian2",
+          "graphRange"
         ]
       }
     }

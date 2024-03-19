@@ -1,0 +1,32 @@
+{
+  "title": "GEOPOINT",
+  "x-stoplight": {
+    "id": "5ikxmncl6e4ag"
+  },
+  "type": "object",
+  "properties": {
+    "latitude": {
+      "type": "number",
+      "minimum": -90,
+      "maximum": 90,
+      "example": 34.81,
+      "x-stoplight": {
+        "id": "2pvm7ukxkytgg"
+      }
+    },
+    "longitude": {
+      "type": "number",
+      "minimum": -180,
+      "maximum": 180,
+      "example": 32.161,
+      "x-stoplight": {
+        "id": "omycnzl73n9c7"
+      }
+    }
+  },
+  "required": [
+    "latitude",
+    "longitude"
+  ],
+  "description": "Geo point without the point altitude "
+}

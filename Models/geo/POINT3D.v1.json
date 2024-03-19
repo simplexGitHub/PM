@@ -1,0 +1,16 @@
+{
+  "type": "array",
+  "x-stoplight": {
+    "id": "m9997oo8ls26d"
+  },
+  "title": "POINT3D",
+  "minItems": 2,
+  "maxItems": 3,
+  "description": "[longitude, latitude, altitude]",
+  "items": {
+    "type": "number",
+    "x-stoplight": {
+      "id": "drcm958mpc5g2"
+    }
+  }
+}

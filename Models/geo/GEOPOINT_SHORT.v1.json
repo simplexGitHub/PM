@@ -1,0 +1,31 @@
+{
+  "title": "GEOPOINT_SHORT",
+  "x-stoplight": {
+    "id": "2oy280gw14ovp"
+  },
+  "type": "object",
+  "properties": {
+    "lat": {
+      "type": "number",
+      "minimum": -90,
+      "example": 34.81,
+      "maximum": 90,
+      "x-stoplight": {
+        "id": "sugxl82ax3ysr"
+      }
+    },
+    "lon": {
+      "type": "number",
+      "minimum": -180,
+      "example": 32.161,
+      "maximum": 180,
+      "x-stoplight": {
+        "id": "weq454pxg9zdj"
+      }
+    }
+  },
+  "required": [
+    "lat",
+    "lon"
+  ]
+}

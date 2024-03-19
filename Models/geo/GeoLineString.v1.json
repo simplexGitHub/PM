@@ -1,0 +1,63 @@
+{
+  "title": "GeoLineString",
+  "x-stoplight": {
+    "id": "8k9rrr0bge8hn"
+  },
+  "type": "object",
+  "properties": {
+    "geometry": {
+      "type": "object",
+      "required": [
+        "type",
+        "coordinates"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "default": "LineString",
+          "example": "LineString",
+          "x-stoplight": {
+            "id": "mzyz40jewu2dr"
+          }
+        },
+        "coordinates": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "$ref": "#/definitions/POINT3D.v1",
+            "x-stoplight": {
+              "id": "p75wvoyb2chbl"
+            }
+          },
+          "x-stoplight": {
+            "id": "ym2d6prrgvxvv"
+          }
+        }
+      },
+      "x-stoplight": {
+        "id": "79ib4anfppg24"
+      }
+    }
+  },
+  "required": [
+    "geometry"
+  ],
+  "definitions": {
+    "POINT3D.v1": {
+      "type": "array",
+      "title": "POINT3D",
+      "minItems": 2,
+      "maxItems": 3,
+      "description": "[longitude, latitude, altitude]",
+      "items": {
+        "type": "number",
+        "x-stoplight": {
+          "id": "tlsuqzty2m61a"
+        }
+      },
+      "x-stoplight": {
+        "id": "nmnpezt7lecd9"
+      }
+    }
+  }
+}

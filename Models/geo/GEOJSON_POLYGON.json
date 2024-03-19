@@ -1,0 +1,73 @@
+{
+  "title": "GEOJSON_POLYGON",
+  "x-stoplight": {
+    "id": "vtxfc35ftlr98"
+  },
+  "type": "object",
+  "examples": [
+    {
+      "geometry": {
+        "type": "string",
+        "coordinates": [
+          [
+            [
+              -180,
+              -180
+            ]
+          ]
+        ]
+      }
+    }
+  ],
+  "properties": {
+    "geometry": {
+      "type": "object",
+      "required": [
+        "type",
+        "coordinates"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "default": "Polygon",
+          "example": "Polygon",
+          "x-stoplight": {
+            "id": "gdhke7ag3fpf2"
+          }
+        },
+        "coordinates": {
+          "$ref": "#/definitions/POINT.v1",
+          "x-stoplight": {
+            "id": "dbwjdetfc1lla"
+          }
+        }
+      },
+      "x-stoplight": {
+        "id": "yeq39qkiihdvo"
+      }
+    }
+  },
+  "required": [
+    "geometry"
+  ],
+  "definitions": {
+    "POINT.v1": {
+      "type": "array",
+      "title": "POINT",
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "[longitude, latitude]",
+      "items": {
+        "type": "number",
+        "minimum": -180,
+        "maximum": 180,
+        "x-stoplight": {
+          "id": "29cla3zf54147"
+        }
+      },
+      "x-stoplight": {
+        "id": "kfoqqqutvrje8"
+      }
+    }
+  }
+}

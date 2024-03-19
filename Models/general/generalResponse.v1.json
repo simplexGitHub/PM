@@ -1,0 +1,15 @@
+{
+  "title": "generalResponse",
+  "x-stoplight": {
+    "id": "ffh6m8gpa3gf4"
+  },
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "n4r1lhg2rtilb"
+      }
+    }
+  }
+}
